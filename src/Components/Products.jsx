@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { getProducts } from '../store/reducers/productReducer';
+import { useDispatch, useSelector } from 'react-redux'
+import { asyncGetProduct } from '../store/action/ProductAction';
 
 const Products = () => {
     const dispatch = useDispatch();
 
+    const { products } = useSelector((state) => state.productReducer);
+    console.log(products)
     useEffect(()=>{
-        dispatch(getProducts())
+      dispatch(asyncGetProduct()) 
     },[])
   return (
     <div className="p-5">

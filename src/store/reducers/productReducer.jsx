@@ -10,14 +10,8 @@ export const productSlice = createSlice({
     initialState,
     reducers:{
         getProducts: (state , action) =>{
-            console.log(action)
-            axios.get("https://fakestoreapi.com/products")
-            .then((res)=>{
-                console.log(res)
-                state.product = res.data
-            }).catch((err) => {
-                console.log(err)
-            })
+            // console.log(action)
+           state.product = action.payload
         }
     }
 })
